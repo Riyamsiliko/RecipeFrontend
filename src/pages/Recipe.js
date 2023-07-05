@@ -2,7 +2,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import "./Recipe.css";
-import Homepage from '../components/Homepage';
+import Userpage from '../components/Userpage';
 
 const Recipe = () => {
   const [recipes, setRecipes] = useState([]);
@@ -25,7 +25,7 @@ const Recipe = () => {
   
   return (
     <div>
-    <Homepage/> 
+    <Userpage/> 
           <table class="table">
             <thead>
               <tr>

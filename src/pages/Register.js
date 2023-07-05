@@ -1,11 +1,11 @@
 import React from 'react'
 import './Register.css'
-import Homepage from '../components/Homepage';
+import Registerpage from '../components/Registerpage';
 
 export default function Register() {
   return (
     <div>
-    <Homepage/>   
+    <Registerpage/>   
     <form>
 <div class="container">
 <h1>Register Here</h1>

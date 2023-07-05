@@ -48,7 +48,6 @@ const UserRecipe = () => {
                 <th scope="col">Title</th>
                 <th scope="col">Ingredients</th>
                 <th scope="col">instructions</th>
-                <th scope="col"><Link to={"/AddRecipe"}><button>AddRecipe</button></Link></th>
                 
               </tr>
             </thead>

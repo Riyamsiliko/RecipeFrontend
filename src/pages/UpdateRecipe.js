@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
+import Homepage from '../components/Homepage';
 
 function UpdateRecipe() {
     const navigate = useNavigate();
@@ -28,6 +29,7 @@ function UpdateRecipe() {
 
   return (
     <div>
+    <Homepage/> 
    <form onSubmit={handleSubmit} >
     <div class="form-group">
       <label for="title">Title:</label>

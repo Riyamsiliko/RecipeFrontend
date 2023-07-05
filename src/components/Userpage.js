@@ -1,16 +1,13 @@
 import React from 'react'
-import './Homepage.css'
+import './userpage.css'
 import { Link } from 'react-router-dom'
 
- function Homepage() {
-  const openPDF = () => {
-    window.open('/PDF/report.pdf', '_blank');
-  };
+ function Userpage() {
   return (
     <div>
        <nav class="navbar">
    
-    <div class="logo">ADMIN</div>
+    <div class="logo"> RecipeHubMember </div>
 
   
     <ul class="nav-links">
@@ -22,13 +19,12 @@ import { Link } from 'react-router-dom'
   
       <div class="menu">
 
-      <li onClick={openPDF}>Report</li>
-        <Link to={"/UserRecipe"}><li>Recipes</li></Link>
-        <Link to={"/AddRecipe"}><li>AddRecipe</li></Link>
+      <Link to={"/UserRecipe"}><li>Recipes</li></Link>
+        {/* <Link to={"LoginOut"}><li>LogOut</li></Link> */}
       </div>
     </ul>
   </nav>
     </div>
   )
 }
-export default Homepage
+export default Userpage;

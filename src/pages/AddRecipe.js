@@ -2,6 +2,7 @@ import React from 'react'
 import {useState} from 'react';
 import  './AddRecipe.css'
 import axios from 'axios';
+import Homepage from '../components/Homepage';
 import {useNavigate} from 'react-router-dom';
 
 function AddRecipe() {
@@ -27,6 +28,7 @@ const handleSubmit = (event) => {
 
   return (
     <div>
+    <Homepage/> 
    <form onSubmit={handleSubmit} >
     <div class="form-group">
       <label for="title">Title:</label>
