@@ -1,29 +1,104 @@
+import React,{useState} from 'react';
+import './Login.css';
+import { useNavigate } from 'react-router-dom';
 
-import  './Login.css'
-import './googleLogin.css'
-import { Link } from 'react-router-dom';
-import Register from './Register';
-import UserRecipe from './UserRecipe';
 
-export default function Login() {
-  return (
-    <div class="login-form">
-  <form>
-    <h1>Login</h1>
-    <div class="content">
-      <div class="input-field">
-        <input type="email" placeholder="Email" autocomplete="nope"/>
+const Login = () =>{
+
+  const [username, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if(validate()){
+      //alert("Good Work");
+
+      fetch("http://localhost:8080/login/id/"+username).then((res)=>{
+        return res.json();
+      }).then((resp)=>{
+        console.log(resp);
+
+        if(Object.keys(resp).length === 0){
+          alert("Please enter valid username");
+        }else{
+          if(resp.password === password){
+              //alert("success")
+              //history.push('/dashboard');
+
+              if(resp.user_role === 'customer'){
+                //history.push('/user-dash');
+                //alert("Customer");
+                navigate('/Recipe');
+              }
+              if(resp.user_role === 'admin'){
+                //alert("ADMIIN")
+                 navigate('/userRecipe');
+              }
+              
+          }else{
+            alert("Please enter valid password");
+          }
+        }
+      }).catch((err)=>{
+        alert("Error"+err);
+        //alert("SI SAHIHI")
+        // toast.error("Incorrect cridentials ", {
+        //   className: "toast-error",
+        //   position: toast.POSITION.TOP_RIGHT,
+        //   autoClose: 5000,
+        // });
+      });
+    }
+  }
+
+
+  const validate = () =>{
+    let result = true;
+
+    if(username ==='' || username ===null){
+      result = false;
+      alert("Enter username");
+    }
+
+    if(password ==='' || password ===null){
+      result = false;
+      alert("Enter Password");
+    }
+
+    return result;
+  }
+
+    return(
+        <div className="login-form-container">
+        <h2>Login</h2>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="username">Username:</label>
+            <input
+          type="text"
+          value={username}
+          onChange={(e) => setEmail(e.target.value)}
+        id="email" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password:</label>
+            <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)} id="password" />
+          </div>
+          <button type="submit">Login</button>
+          <p>
+          Does not have an account?<b><a href='/register'> Register here</a></b> 
+        </p>
+        
+        </form>
       </div>
-      <div class="input-field">
-        <input type="password" placeholder="Password" autocomplete="new-password"/>
-      </div>
-      <a href="#" class="link">Forgot Your Password?</a>
-    </div>
-    <div class="action">
-     <Link to={"/Register"}><button>Register</button></Link>
-     <Link to={"/UserRecipe"}><button>Login</button></Link>
-    </div>
-  </form>
-</div>
-  )
+
+    );
 }
+
+export default Login;
