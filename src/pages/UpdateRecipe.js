@@ -37,7 +37,7 @@ function UpdateRecipe() {
     </div>
     <div class="form-group">
       <label for="ingredients">Ingredients:</label>
-      <textarea id="ingredients" name="ingredients"  value={data.ingredients} onChange={event => setData({...data,ingredientse:event.target.value})} rows="6"></textarea>
+      <textarea id="ingredients" name="ingredients"  value={data.ingredients} onChange={event => setData({...data,ingredients:event.target.value})} rows="6"></textarea>
     </div>
     <div class="form-group">
       <label for="instructions">Instructions:</label>

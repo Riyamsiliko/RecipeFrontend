@@ -22,7 +22,7 @@ import { Link } from 'react-router-dom'
   
       <div class="menu">
 
-      <li onClick={openPDF}>Report</li>
+      {/* <li onClick={openPDF}>Report</li> */}
         <Link to={"/UserRecipe"}><li>Recipes</li></Link>
         <Link to={"/AddRecipe"}><li>AddRecipe</li></Link>
       </div>

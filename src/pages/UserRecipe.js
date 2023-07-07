@@ -65,7 +65,7 @@ const UserRecipe = () => {
                   <button onClick={() => deletehandleRecipe(data.id)}>DeleteRecipe</button>
                 </td> 
                 <td>
-                <Link to={`/UpdateRecipe/${data.id}`}><button>edit</button></Link>
+                <Link to={`/UpdateRecipe/${data.id}`}><button>editRecipe</button></Link>
                 </td> 
                 </tr>
               ))
